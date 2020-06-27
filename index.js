@@ -3,7 +3,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 // Create Questions Object for Inquirer
-const questions = [
+const prompts = [
   {
     type: "input",
     name: "projectName",
@@ -43,99 +43,43 @@ const questions = [
   },
 ];
 
-async function init() {
- await inquirer.prompt(questions).then((response) => {
-    fs.appendFileAsync(
+async function append() {
+  await inquirer.prompt(prompts).then((response) => {
+    fs.appendFileSync("README.md", "# " + response.projectName + "\n");
+
+    fs.appendFileSync(
       "README.md",
-      "# " + response.projectName + "/n",
-      function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Created!");
-        }
-      }
+      "## Description " + "\n" + response.projectDesc + "\n"
     );
 
-    fs.appendFileAsync(
+    fs.appendFileSync(
       "README.md",
-      "# " + response.projectDesc + "/n",
-      function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Created!");
-        }
-      }
+      "### How to Install " + "\n" + response.projectInstall + "\n"
     );
 
-    fs.appendFileAsync(
+    fs.appendFileSync(
       "README.md",
-      "# " + response.projectInstall + "/n",
-      function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Created!");
-        }
-      }
+      "### How to Use " + "\n" + response.projectUse + "\n"
     );
 
-    fs.appendFilAsync("README.md", "# " + response.projectUse + "/n", function (
-      err
-    ) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Created!");
-      }
-    });
-
-    fs.appendFileAsync(
+    fs.appendFileSync(
       "README.md",
-      "# " + response.projectLicense + "/n",
-      function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Created!");
-        }
-      }
+      "### Licenses " + "\n" + response.projectLicense + "\n"
     );
 
-    fs.appendFileAsync(
+    fs.appendFileSync(
       "README.md",
-      "# " + response.githubName + "/n",
-      function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Created!");
-        }
-      }
+      "### Contributors " + "\n" + response.githubName + "\n"
     );
 
-    fs.appendFileAsync(
+    fs.appendFileSync(
       "README.md",
-      "# " + response.projectTest + "/n",
-      function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Created!");
-        }
-      }
+      "### For Error Reporting & Contributions " +
+        "\n" +
+        response.projectTest +
+        "\n"
     );
   });
 }
 
-init();
-
-console.log(repsonse);
-console.log(repsonse.projectName);
-console.log(repsonse.projectDesc);
-console.log(repsonse.projectInstall);
-console.log(repsonse.projectUse);
-console.log(repsonse.projectLicense);
-console.log(repsonse.githubName);
-console.log(repsonse.projectTest);
+append();
