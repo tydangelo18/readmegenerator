@@ -82,4 +82,5 @@ async function append() {
   });
 }
 
+// Call the function to append to the ReadMe
 append();
