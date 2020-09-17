@@ -8,33 +8,39 @@ const prompts = [
     type: "input",
     name: "projectName",
     message: "Please give this project a name: ",
+    default: "project",
   },
+  
   {
     type: "input",
     name: "projectDesc",
     message: "Please describe this project: ",
   },
+  
   {
     type: "input",
     name: "projectContributors",
     message: "Who contributed to this project? ",
   },
+  
   {
     type: "input",
     name: "projectDemo",
     message: "Please enter in the live demo link: ",
-  },
+  }, 
+  
   {
     type: "input",
     name: "projectTech",
-    message:
-      'Please write which license you want to use for this project (type "none" if no license): ',
+    message: "Please Enter Technologies Used for this project (Separate by commas): ",
   },
+  
   {
     type: "input",
     name: "projectDev",
     message: "Please Enter Future Development: ",
   },
+
 ];
 
 async function append() {
