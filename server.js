@@ -16,30 +16,24 @@ const prompts = [
   },
   {
     type: "input",
-    name: "projectInstall",
-    message: "How does a user install this project? ",
+    name: "projectContributors",
+    message: "Who contributed to this project? ",
   },
   {
     type: "input",
-    name: "projectUse",
-    message: "How does a user use this app? ",
+    name: "projectDemo",
+    message: "Please enter in the live demo link: ",
   },
   {
     type: "input",
-    name: "projectLicense",
+    name: "projectTech",
     message:
       'Please write which license you want to use for this project (type "none" if no license): ',
   },
   {
     type: "input",
-    name: "githubName",
-    message: "What is your github name? ",
-  },
-  {
-    type: "input",
-    name: "projectTest",
-    message:
-      "How would a user report an issue or make contributions to this project?",
+    name: "projectDev",
+    message: "Please Enter Future Development: ",
   },
 ];
 
@@ -49,35 +43,27 @@ async function append() {
 
     fs.appendFileSync(
       "README.md",
-      "## Description " + "\n" + response.projectDesc + "\n"
+      "## Description " + "\n" + "-" + response.projectDesc + "\n"
     );
 
     fs.appendFileSync(
       "README.md",
-      "### How to Install " + "\n" + response.projectInstall + "\n"
+      "### Contributors " + "\n" + "-" + response.projectContributors + "\n"
     );
 
     fs.appendFileSync(
       "README.md",
-      "### How to Use " + "\n" + response.projectUse + "\n"
+      "### Demo " + "\n" + "(" + response.projectDemo + ")" + "\n"
     );
 
     fs.appendFileSync(
       "README.md",
-      "### Licenses " + "\n" + response.projectLicense + "\n"
+      "### Technologies Used " + "\n" + response.projectTech + "\n"
     );
 
     fs.appendFileSync(
       "README.md",
-      "### Contributors " + "\n" + response.githubName + "\n"
-    );
-
-    fs.appendFileSync(
-      "README.md",
-      "### For Error Reporting & Contributions " +
-        "\n" +
-        response.projectTest +
-        "\n"
+      "### Contributors " + "\n" + response.projectDev + "\n"
     );
   });
 }
