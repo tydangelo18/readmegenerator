@@ -10,7 +10,7 @@ Clone or Fork my repository, run NPM install, and run "node index.js" in your te
 
 ### How to Use
 
-Open up the terminal, type "node index.js", answer the given prompts, and your ReadMe will generate in your folder.
+Open up the terminal, type "node server.js", answer the given prompts, and your ReadMe will generate in your folder.
 
 ### Licenses
 
